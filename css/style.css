@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&family=Edu+QLD+Beginner:wght@400;500;600&family=IBM+Plex+Sans&family=Inter:wght@100;200;300;400;500;600&family=Lobster&display=swap');
+
+.container{
+
+    width: 1200px;
+    display: flex;
+
+}
+
+header {
+
+display: flex;
+justify-content: space-between;
+font-family: inter;
+background-color: #9370DB;
+
+}
+
+header:hover{
+    background-color: #a582ec;
+    transition-delay: 0.2s;
+    transition: 1s;
+}
+
+
+.logo{
+
+    height: 24px;
+    width: 212px;
+    font-size: 23px;
+ 
+    color: white;
+    padding-left: 117px;
+
+}
+
+.menu {
+
+display: flex;
+padding-right: 117px;
+
+gap: 20px;
+
+font-size: 15px;
+font-family: inter;
+list-style: none;
+
+
+}
+
+a{
+text-decoration: none;
+color: #242424;
+cursor: pointer;
+color: white;
+
+}
+
+.produtoscamisa{
+
+    display: flex;
+    list-style: none;
+
+  
+}
+
+.produtosmoletom{
+
+    display: flex;
+    list-style: none;
+
+    
+
+}
+
+
+.produtosacessorios{
+
+    display: flex;
+    list-style: none;
+
+    
+
+}
+
+.produtoscalcas{
+    display: flex;
+    list-style: none;
+}
+
+.adicionar{
+    display: flex;
+    height: 30px;
+    cursor: pointer;
+    text-decoration: none;
+
+    /* background-color: #37268C; */
+    background-color: #9370DB;
+
+    
+
+    color: #FFFFFF;
+    align-items: center;
+    border-radius: 4px;
+
+}
+
+
+img{
+
+    height: 212px;
+    width: 217px;
+    left: 52px;
+
+
+}
+
+h4{
+    height: 20px;
+    width: 70px;
+    padding: 12px, 5px, 5px, 5px;
+    color: white;
+    background-color: #9370DB;
+   
+}
+
+h4, h3, p{
+  padding: 3px 3px 3px 3px;
+
+}
+
+
+button{
+
+    display: flex;
+    font-size: 12px;
+    border-style: none;
+    color: white;
+    display: inline-block;
+    cursor: pointer;
+    background-color: #9370DB;
+}
+
+fieldset{ 
+    border-style: none;
+}
+
+.botaodocarrinho{
+
+display: flex;
+display: inline-block;
+
+height: 50px;
+width: 347px;
+left: 1138px;
+top: 202px;
+border-radius: 0px;
+
+background-color: #9370DB;
+border-style: none;
+justify-content: center;
+
+}
+
+.botaodocomprarcarrinho{
+
+    font-size: 18px;
+    color: white;
+}
+
+
+.formulario{
+
+    display: flex;
+   
+    height: 40px;
+    width: 246px;
+   
+
+
+
+}
