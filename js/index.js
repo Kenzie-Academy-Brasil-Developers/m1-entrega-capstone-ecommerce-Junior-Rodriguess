@@ -8,8 +8,6 @@ const produtos = [
         categoria: "Camisas",
         paragrafo: "Acaba de encontrar a melhor camisa para você treinar na sua academia." ,
         price: 100.00,
-        
-      
     },
     {
         id:1,
@@ -19,9 +17,7 @@ const produtos = [
         categoria: "Camisas",
         paragrafo: "Acaba de encontrar a melhor camisa para você treinar na sua academia." ,
         price: 50.00,
-      
     },
-  
     {
         id:2,
         nomeItem: "Camiseta Adidas - Vermelha",
@@ -30,7 +26,6 @@ const produtos = [
         categoria: "Camisas",
         paragrafo: "Acaba de encontrar a melhor camisa para você treinar na sua academia." ,
         price: 200.00,
-      
     },
     {
         id:3,
@@ -40,7 +35,6 @@ const produtos = [
         categoria: "Moletom",
         paragrafo: "Acaba de encontrar o melhor moletom para você treinar na sua academia." ,
         price: 200.00,
-      
     },
     {
         id:4,
@@ -50,7 +44,6 @@ const produtos = [
         categoria: "Moletom",
         paragrafo: "Acaba de encontrar o melhor moletom para você treinar na sua academia." ,
         price: 50.00,
-      
     },
     {
         id:5,
@@ -71,8 +64,6 @@ const produtos = [
         price: 100.00,
       
     },
-  
-  
     {
         id:7,
         nomeItem: "Step Preto Academia",
@@ -83,7 +74,6 @@ const produtos = [
         price: 100.00,
       
     },
-  
     {
         id:8,
         nomeItem: "Luvas Academia - Preta",
@@ -94,7 +84,6 @@ const produtos = [
         price: 100.00,
       
     },
-  
     {
         id:9,
         nomeItem: "Calça Nike Dri-Fit",
@@ -105,7 +94,6 @@ const produtos = [
         price: 100.00,
       
     },
-  
     {   
         id:10,
         nomeItem: "Calça Azul",
@@ -116,7 +104,6 @@ const produtos = [
         price: 100.00,
       
     },
-  
     {
         id:11,
         nomeItem: "Calça Camuflada",
@@ -127,96 +114,60 @@ const produtos = [
         price: 100.00,
       
     },
-  
   ]
-let tagMain               = document.createElement('main')
-let tagDiv                = document.createElement('div')
-let tagSection            = document.createElement('section')
-let tagUl                 = document.createElement('ul')
-let tagAside              = document.createElement("aside")
-let tagDivcarrinho        = document.createElement("div")
-let tagDivItens           = document.createElement("div")
-tagSection.classList.add  ("section_1")
-tagUl.classList.add       ("produtos")
-tagDivItens.classList.add ("aside_carrinho")
-document.body.append      (tagMain)
-tagMain.append            (tagDiv)
-tagDiv.append             (tagSection, tagAside)
-tagSection.append         (tagUl)
-const cardsProdutos = []
-function renderizarcards(){
-    for (let i = 0 ; i < produtos.length; i++) { 
-        let tagli                   = document.createElement('li')
-        let tagImgProdutos          = document.createElement('img')
-        let tagH4Categoria          = document.createElement('h4')
-        let tagH3Produtos           = document.createElement('h3')
-        let tagDescricao            = document.createElement('p')
-        let strongValor             = document.createElement('strong')
-        let tagbtn                  = document.createElement('button')
-        tagli.classList.add      ("cards")
-        tagImgProdutos.src       = `${produtos[i].img}`  
-        tagImgProdutos.alt       = `${produtos[i].nomeItem}`
-        tagH4Categoria.innerText = `${produtos[i].categoria}`
-        tagH3Produtos.innerText  = `${produtos[i].nomeItem}`
-        tagDescricao.innerText   = `${produtos[i].paragrafo}`
-        strongValor.innerText    = `R$ ${produtos[i].price}`
-        tagbtn.innerText         = `Adicionar ao carrinho`
-        tagli.append             (tagImgProdutos, tagH4Categoria, tagH3Produtos,tagDescricao, strongValor, tagbtn)
-        tagUl.append             (tagli)
-        cardsProdutos.push       (tagUl)
-    }    
-    return cardsProdutos
+const vitrineUl = document.querySelector(".produtos")
+const vitrineCarrinhoUl = document.querySelector(".aside_itens ul") 
+function renderizarCards(produtos){
+    vitrineUl.innerHTML = ""
+    for(let produto of produtos){
+        let card = criarCard(produto)
+        vitrineUl.append(card) 
+    }
 }
-renderizarcards()
-let tagForm      = document.createElement('form')
-let tagfieldset  = document.createElement('fieldset')
-tagAside.append  (tagForm)
-tagForm.append   (tagfieldset)
-function criandoformulario(){
-    let tagPFormulario          = document.createElement('p')
-    let tagLabel                = document.createElement('label')
-    let tagInput                = document.createElement('input')
-    let tagBotaoForms           = document.createElement('button')
-    tagPFormulario.classList.add("formulario")
-    tagBotaoForms.innerText     = `pesquisar`
-    tagPFormulario.append       (tagLabel, tagInput, tagBotaoForms)
-    tagfieldset.appendChild     (tagPFormulario)
+renderizarCards(produtos)
+function criarCard(produto){
+    let tagLi = document.createElement('li')
+    tagLi.className = "cards"
+    tagLi.innerHTML = `
+    <img src="${produto.img}" alt="${produto.nomeItem}">
+    <h4>${produto.categoria}</h4>
+    <h3>${produto.nomeItem}</h3>
+    <p>${produto.paragrafo}</p>
+    <p><strong>R$ ${produto.price.toFixed(2)}</strong></p>
+    <button class="btn_adicionar_no_carrinho" id = "${produto.id}">Adicionar ao carrinho</button>
+    `
+return tagLi
 }
-criandoformulario()
-let carrinhoCompras          = document.createElement('button')
-let tagA                     = document.createElement('a')
-carrinhoCompras.classList.add("botao_do_carrinho")
-tagA.classList.add           ("botao_comprar_do_carrinho")
-tagA.innerText               = `Carrinho de compras`
-tagAside.append             (carrinhoCompras)
-carrinhoCompras.append      (tagA)
-tagUl.addEventListener      ("click", addcarrinho)
-function addcarrinho(event){
+function criarCardCarrinho(produto){
+    let tagLi = document.createElement('li')
+    tagLi.innerHTML = `
+    <img class="item_img" src="${produto.img}" alt="${produto.nomeItem}"> 
+    <h3 class="text">${produto.nomeItem}</h3>
+    <h5 class="text">R$ ${produto.price.toFixed(2)}</h5>
+    <button class="text" id = "${produto.id}">Remover Produto</button>
+    `
+    return tagLi
+}
+vitrineUl.addEventListener("click", addCarrinho)
+function addCarrinho(event){
     let tagbotao = event.target
     if (tagbotao.tagName == "BUTTON") {
-    let produtos = tagbotao.closest('li').cloneNode(true)
-    tagAside.appendChild(produtos)
+    let produto = produtos.find(function(produto){
+        if (tagbotao.id == produto.id){
+            let cardcarrinho = criarCardCarrinho(produto)
+            vitrineCarrinhoUl.append(cardcarrinho)
+        }
+    })     
+    }
 }
+vitrineCarrinhoUl.addEventListener("click", removerItemCarrinho)
+function removerItemCarrinho(event){
+    let tagBotaoRemover = event.target
+    if (tagBotaoRemover.tagName == "BUTTON") {
+        let produto = produtos.find(function(produto){
+            if(tagBotaoRemover.id == produto.id){
+                tagBotaoRemover.closest('li').remove('li')
+            }
+    })
+    }
 }
-addcarrinho()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//  console.log(divH3)

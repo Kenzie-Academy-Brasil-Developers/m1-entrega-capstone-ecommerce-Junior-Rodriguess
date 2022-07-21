@@ -11,7 +11,7 @@ header:hover {
     transition: 1s;
     cursor: pointer;
 }
-.logo {
+header .logo {
     height: 24px;
     width: 212px;
     font-size: 23px;
@@ -19,7 +19,7 @@ header:hover {
     padding-left: 117px;
     cursor: pointer;
 }
-.menu {
+nav .menu {
     display: flex;
     padding-right: 117px;
     gap: 20px;
@@ -36,15 +36,11 @@ nav:hover {
     transform: scale(1.1);
     transition: 0.3s;
 }
-
-
-
 div {
     width: 1300px;
     display: flex;
 }
-
-.cards {
+div .cards {
 
     display: flex;
     width: 250px;
@@ -62,15 +58,12 @@ img:hover{
     transition: 0.3s;
     cursor: pointer;
 }
-
-
 h4 {
     height: 20px;
     width: 70px;
     color: white;
     background-color: #9370DB; 
  }
- 
 ul{
     display: flex;
     flex-wrap:wrap;
@@ -78,9 +71,7 @@ ul{
     padding-left: 60px;
     justify-content: space-around;
 }
-
 button {
-
     display: flex;
     display: inline-block;
     width: 150px;
@@ -94,105 +85,94 @@ button {
     background-color: #9370DB;
     border-radius: 4px;
 }
-
-
 button:hover {
     background-color: #a582ec;
     transition-delay: 0.2s;
     transition: 1s;
 }
-
 fieldset { 
     border-style: none;
     padding-top: 30px;
 }
-.formulario {
+fieldset .formulario {
     display: flex;
     height: 31px;
-    width: 246px;
-    
+    width: 246px;   
 }
-
-.aside_carrinho {
+aside .aside_carrinho {
     width: 100%;
     display: flex;
     padding-right: 15px;
     flex-direction: column;
 }
-
-
-.aside_itens {
+aside .aside_itens {
     display: flex;
     height: 329px;
     width: 345px;
     overflow-y: scroll;
     flex-direction: column;
     border: 4px solid #a582ec;
-    border-radius: 1%;
-
-    background-color: aqua;
+    border-radius: 1%;  
 } 
-
-.item_img {
-    height: 67px;
+.item_img { 
+    height: 70px;
     width: 88px;
 }
-
-
 .botao_do_carrinho {
     display: flex;
-    display: inline-block;
     height: 50px;
     width: 347px;
-    left: 1138px;
-    top: 202px;
+    justify-content: center;
+    align-items: center;
+    color: white;
     background-color: #9370DB;
     border-radius: 6%;
     border-style: none;
-    justify-content: center;
-}
+}   
 .botao_do_carrinho:hover {
     background-color: #a582ec;
     transition-delay: 0.2s;
     transition: 1s;
 }
 .botao_comprar_do_carrinho {
-    
     font-size: 18px;
     color: white;
 }
-
-.quantidade_dos_produtos {  
+.caixa_itens {
+    width: 350px;    
+    height: 350px;
     display: flex;
-    height: 80px;
-    width: 314px;
-    padding-right: 30px;
-    padding-left: 10px;
-    color: white;
-    justify-content: space-between;
-    background-color: #9370DB;
-    cursor: pointer;
-    border-radius: 2px;
+    flex-direction: column;
 }
-
-.total_do_produto {
+.quantidade_dos_produtos {
     display: flex;
-    height: 80px;
-    width: 314px;
+    width: 310px; 
+    height: 50px;
     padding-right: 30px;
     padding-left: 10px;
     justify-content: space-between;
-    cursor: pointer;
-    background-color: #9370DB;
+    background-color: #5b3a9eab;
+    color: white;
+}
+ div .total_do_produto {
+    display: flex;
+    width: 310px; 
+    height: 50px;
+    padding-right: 30px;
+    padding-left: 10px;
+    justify-content: space-between;
+    background-color: #5b3a9eab;
     color: white;
 }
 .quantidade_dos_produtos:hover {
     background-color: #a582ec;
     transition-delay: 0.2s;
     transition: 1s;
-}
+    cursor: pointer;
+} 
 .total_do_produto:hover {
     background-color: #a582ec;
     transition-delay: 0.2s;
     transition: 1s;
-}
+    cursor: pointer;
+} 
