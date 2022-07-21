@@ -3,7 +3,7 @@ const produtos = [
     {
         id:0,
         nomeItem: "Camisa Preta de manga curta",
-        img: "./img/camiseta_nike_preta.webp",
+        img: "./img/camiseta-manga-curta-new.webp",
         alt: "",
         categoria: "Camisas",
         paragrafo: "Acaba de encontrar a melhor camisa para você treinar na sua academia." ,
@@ -48,7 +48,7 @@ const produtos = [
     {
         id:5,
         nomeItem: "Moletom Fitness Masculino",
-        img: "./img/moletom-fitness-masculino.jpg",
+        img: "./img/moletom-de-treino-masculino-esporte-justo-para-academia-gola-olimpica.jpg",
         alt: "",
         categoria: "Moletom",
         paragrafo: "Acaba de encontrar o melhor moletom para você treinar na sua academia.",
