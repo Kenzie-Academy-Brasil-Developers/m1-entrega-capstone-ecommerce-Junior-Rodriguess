@@ -79,7 +79,6 @@ ul{
     justify-content: space-around;
 }
 
-
 button {
 
     display: flex;
@@ -95,6 +94,7 @@ button {
     background-color: #9370DB;
     border-radius: 4px;
 }
+
 
 button:hover {
     background-color: #a582ec;
@@ -112,7 +112,6 @@ fieldset {
     width: 246px;
     
 }
-
 
 .aside_carrinho {
     width: 100%;
@@ -138,8 +137,6 @@ fieldset {
     height: 67px;
     width: 88px;
 }
-
-
 
 
 .botao_do_carrinho {

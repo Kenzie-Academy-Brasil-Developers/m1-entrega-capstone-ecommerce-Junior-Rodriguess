@@ -129,162 +129,77 @@ const produtos = [
     },
   
   ]
-  
-  
-  
-
-//////////////CRIANDO AS TAGS//////////////////
-
-    let tagMain            = document.createElement('main')
-    let tagDiv             = document.createElement('div')
-    let tagSection         = document.createElement('section')
-    let tagUl              = document.createElement('ul')
-    let tagAside           = document.createElement("aside")
-    let tagDivcarrinho     = document.createElement("div")
-    let tagDivItens        = document.createElement("div")
-
-    tagSection.classList.add("section_1")
-    tagUl.classList.add("produtos")
-    tagDivItens.classList.add("aside_carrinho")
-
-    document.body.append(tagMain)
-    tagMain.append(tagDiv)
-    tagDiv.append(tagSection, tagAside)
-    tagSection.append(tagUl)
-
-  
-
-   
-    
-////////////// RENDERIZANDO OS CARDS ---------------------------------------------------------------------------
-
-
-
+let tagMain               = document.createElement('main')
+let tagDiv                = document.createElement('div')
+let tagSection            = document.createElement('section')
+let tagUl                 = document.createElement('ul')
+let tagAside              = document.createElement("aside")
+let tagDivcarrinho        = document.createElement("div")
+let tagDivItens           = document.createElement("div")
+tagSection.classList.add  ("section_1")
+tagUl.classList.add       ("produtos")
+tagDivItens.classList.add ("aside_carrinho")
+document.body.append      (tagMain)
+tagMain.append            (tagDiv)
+tagDiv.append             (tagSection, tagAside)
+tagSection.append         (tagUl)
 const cardsProdutos = []
-
-function renderizarprodutos(){
-
-    
-
-    for (let i = 0 ; i < produtos.length; i++) {
-        
-        let tagli             = document.createElement('li')
-        tagli.classList.add("cards")
-
-        let tagImgProdutos     = document.createElement('img')
-        tagImgProdutos.src = `${produtos[i].img}`  
-        tagImgProdutos.alt = `${produtos[i].nomeItem}`
-
-        let tagH4Produtos          = document.createElement('h4')
-        tagH4Produtos.innerText = `${produtos[i].categoria}`
-
+function renderizarcards(){
+    for (let i = 0 ; i < produtos.length; i++) { 
+        let tagli                   = document.createElement('li')
+        let tagImgProdutos          = document.createElement('img')
+        let tagH4Categoria          = document.createElement('h4')
         let tagH3Produtos           = document.createElement('h3')
-        tagH3Produtos.innerText = `${produtos[i].nomeItem}`
-        let tagDescricao = document.createElement('p')
-        tagDescricao.innerText = `${produtos[i].paragrafo}`
-
-        let strongValor         = document.createElement('strong')
-        strongValor.innerText = `R$ ${produtos[i].price}`
-
-        let tagbtn = document.createElement('button')
-        
-        tagbtn.innerText = `Adicionar ao carrinho`
-
-
-        tagli.append(tagImgProdutos, tagH4Produtos, tagH3Produtos,tagDescricao, strongValor, tagbtn)
-        tagUl.append(tagli)
-
-
-    }   
-
-    cardsProdutos.push(tagUl)
-    
-
-
+        let tagDescricao            = document.createElement('p')
+        let strongValor             = document.createElement('strong')
+        let tagbtn                  = document.createElement('button')
+        tagli.classList.add      ("cards")
+        tagImgProdutos.src       = `${produtos[i].img}`  
+        tagImgProdutos.alt       = `${produtos[i].nomeItem}`
+        tagH4Categoria.innerText = `${produtos[i].categoria}`
+        tagH3Produtos.innerText  = `${produtos[i].nomeItem}`
+        tagDescricao.innerText   = `${produtos[i].paragrafo}`
+        strongValor.innerText    = `R$ ${produtos[i].price}`
+        tagbtn.innerText         = `Adicionar ao carrinho`
+        tagli.append             (tagImgProdutos, tagH4Categoria, tagH3Produtos,tagDescricao, strongValor, tagbtn)
+        tagUl.append             (tagli)
+        cardsProdutos.push       (tagUl)
+    }    
     return cardsProdutos
 }
-renderizarprodutos()
-
-
-
-
-// CRIANDO O FORMULARIO ----------------------------------------------------------------------------
-
-
-let tagForm = document.createElement('form')
-let tagfieldset = document.createElement('fieldset')
-
-tagAside.append(tagForm)
-tagForm.append(tagfieldset)
-
-
+renderizarcards()
+let tagForm      = document.createElement('form')
+let tagfieldset  = document.createElement('fieldset')
+tagAside.append  (tagForm)
+tagForm.append   (tagfieldset)
 function criandoformulario(){
-
-   
-    let tagPFormulario = document.createElement('p')
+    let tagPFormulario          = document.createElement('p')
+    let tagLabel                = document.createElement('label')
+    let tagInput                = document.createElement('input')
+    let tagBotaoForms           = document.createElement('button')
     tagPFormulario.classList.add("formulario")
-    let tagLabel = document.createElement('label')
-
-    let tagInput = document.createElement('input')
-    let tagBotaoForms = document.createElement('button')
-
-    
-    tagBotaoForms.innerText = `pesquisar`
-    
-    tagPFormulario.append(tagLabel, tagInput, tagBotaoForms)
-    tagfieldset.appendChild(tagPFormulario)
-
+    tagBotaoForms.innerText     = `pesquisar`
+    tagPFormulario.append       (tagLabel, tagInput, tagBotaoForms)
+    tagfieldset.appendChild     (tagPFormulario)
 }
 criandoformulario()
-
-
-// CRIANDO O FORMULARIO --------------------------------------------------------------------------------
-
-
-// CRIANDO CARRINHO ------------------------------------------------------------------------
-
-let carrinhoCompras = document.createElement('button')
-let tagA = document.createElement('a')
-
-
+let carrinhoCompras          = document.createElement('button')
+let tagA                     = document.createElement('a')
 carrinhoCompras.classList.add("botao_do_carrinho")
-tagA.classList.add("botao_comprar_do_carrinho")
-tagA.innerText = `Carrinho de compras`
-
-tagAside.append(carrinhoCompras)
-carrinhoCompras.append(tagA)
-
-
-
-
-// CRIANDO CARRINHO ------------------------------------------------------------------------
-
-
-
-// CRIANDO O EVENTO DE ADICIONAR NO CARRINHO ----------------------------------------------
-
-
-
-tagUl.addEventListener("click", addcarrinho)
-
-
+tagA.classList.add           ("botao_comprar_do_carrinho")
+tagA.innerText               = `Carrinho de compras`
+tagAside.append             (carrinhoCompras)
+carrinhoCompras.append      (tagA)
+tagUl.addEventListener      ("click", addcarrinho)
 function addcarrinho(event){
-
-
     let tagbotao = event.target
-    if(tagbotao.tagName == "BUTTON"){
-
+    if (tagbotao.tagName == "BUTTON") {
     let produtos = tagbotao.closest('li').cloneNode(true)
-
     tagAside.appendChild(produtos)
-
 }
-
 }
 addcarrinho()
 
-
-// CRIANDO O EVENTO DE ADICIONAR NO CARRINHO ----------------------------------------------
 
 
 
